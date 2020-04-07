@@ -42,3 +42,16 @@ ex3 = ([1,2], 3) #[2,1]
 rotate(ex1[0], ex1[1])
 rotate(ex2[0], ex2[1])
 rotate(ex3[0], ex3[1])
+
+def rotate2(nums, k):
+    k %= len(nums)
+    nums[:] = nums[-k:]+nums[:-k]
+    print(nums)
+
+ex1 = ([1,2,3,4,5,6,7], 3) #[5,6,7,1,2,3,4]
+ex2 = ([-1,-100,3,99], 2) #[3,99,-1,-100]
+ex3 = ([1,2], 3) #[2,1]
+
+rotate2(ex1[0], ex1[1])
+rotate2(ex2[0], ex2[1])
+rotate2(ex3[0], ex3[1])
