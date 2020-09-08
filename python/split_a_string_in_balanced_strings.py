@@ -31,6 +31,8 @@ def balancedStringSplit(s):
     leftcount = 0
     rightcount = 0
     for c in s:
+        if c is not subletter:
+            subletter = c
         if c == 'L': leftcount += 1
         else: rightcount += 1
         if leftcount == rightcount:
@@ -39,10 +41,20 @@ def balancedStringSplit(s):
             counter += 1
     return counter
 
+def balancedStringSplit2(s):
+    total = 0
+    counter = 0
+    for c in s:
+        if c == 'L': counter += 1
+        else: counter -= 1
+        if counter == 0:
+            total += 1
+    return total
+
 examples = ["RLRRLLRLRL","RLLLLRRRLR","LLLLRRRR","RLRRRLLRLL"]
 answers = [4,3,1,2]
 
 for idx, num in enumerate(examples):
-    print('guess:', balancedStringSplit(num), 'ans:', answers[idx])
+    print('guess:', balancedStringSplit2(num), 'ans:', answers[idx])
 
 
