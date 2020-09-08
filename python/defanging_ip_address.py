@@ -15,8 +15,11 @@
 def defangIPaddr(address):
     new = ''
     for i in address:
-        if i is '.': new = new + '[.]'
+        if i == '.': new = new + '[.]'
         else: new = new + i
     return new
 
-print(defangIPaddr('255.100.50.0'))
+def defangIPaddr2(address):
+    return '[.]'.join(address.split('.'))
+
+print(defangIPaddr2('255.100.50.0'))
