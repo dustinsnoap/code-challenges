@@ -18,11 +18,20 @@ def sortedSquares(A):
     ans.sort()
     return ans
 
+def sortedSquares2(A):
+    return sorted([n**2 for n in A])
+
 inputs = [[-4,-1,0,3,10],[-7,-3,2,3,11]]
 outputs = [[0,1,9,16,100],[4,9,9,49,121]]
 
-# print("ATTEMPT 1")
+print("ATTEMPT 2")
 for idx in range(len(inputs)):
     test_num = idx + 1
     result = "Success" if sortedSquares(inputs[idx]) == outputs[idx] else "Fail"
+    print(f"test {test_num}: {result}")
+
+print("ATTEMPT 2")
+for idx in range(len(inputs)):
+    test_num = idx + 1
+    result = "Success" if sortedSquares2(inputs[idx]) == outputs[idx] else "Fail"
     print(f"test {test_num}: {result}")
