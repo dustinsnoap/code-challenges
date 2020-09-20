@@ -22,15 +22,12 @@
 # Input: num = 9999
 # Output: 9999
 # Explanation: It is better not to apply any change.
- 
 
 # Constraints:
-
 # 1 <= num <= 10^4
 # num's digits are 6 or 9.
 
 def maximum69Number(num):
-    # ints = [int(n) for n in str(num)]
     can_flip = True
     number = ''
     for n in str(num):
@@ -40,11 +37,25 @@ def maximum69Number(num):
         else: number += n
     return int(number)
 
+def maximum69Number2(num):
+    nums = list(str(num))
+    for i in range(len(nums)):
+        if nums[i] == '6':
+            nums[i] = '9'
+            return int(''.join(nums))
+    return num
 
 inputs = [9669,9996,9999]
 outputs = [9969,9999,9999]
 
+print("ATTEMPT 1")
 for idx in range(len(inputs)):
     test_num = idx + 1
     result = "Success" if maximum69Number(inputs[idx]) == outputs[idx] else "Fail"
+    print(f"test {test_num}: {result}")
+
+print("ATTEMPT 2")
+for idx in range(len(inputs)):
+    test_num = idx + 1
+    result = "Success" if maximum69Number2(inputs[idx]) == outputs[idx] else "Fail"
     print(f"test {test_num}: {result}")
