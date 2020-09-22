@@ -24,7 +24,7 @@ def sortedSquares2(A):
 inputs = [[-4,-1,0,3,10],[-7,-3,2,3,11]]
 outputs = [[0,1,9,16,100],[4,9,9,49,121]]
 
-print("ATTEMPT 2")
+print("ATTEMPT 1")
 for idx in range(len(inputs)):
     test_num = idx + 1
     result = "Success" if sortedSquares(inputs[idx]) == outputs[idx] else "Fail"

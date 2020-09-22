@@ -28,11 +28,8 @@ def uniqueOccurrences(arr):
     for e in dct:
         if dct[e] in count_dct: return False
         count_dct[dct[e]] = 1
-        
-    return True
 
-test = [1,2,2,1,1,3]
-print(uniqueOccurrences(test))
+    return True
 
 inputs = [[1,2,2,1,1,3],[1,2],[-3,0,1,-3,1,1,1,-3,10,0]]
 outputs = [True,False,True]
