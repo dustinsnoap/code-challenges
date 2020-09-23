@@ -32,14 +32,36 @@ def minimumAbsDifference(arr):
         if diff not in dct: dct[diff] = [[n1,n2]]
         else: dct[diff].append([n1,n2])
         if min_distance is None or diff < min_distance: min_distance = diff
-
     return dct[min_distance]
+
+def minimumAbsDifference2(arr):
+    arr.sort(reverse=True)
+    min_distance = 999999
+    solutions = []
+    while len(arr) > 1:
+        n1 = arr.pop()
+        n2 = arr[-1]
+        diff = n2 - n1
+        if diff < min_distance:
+            min_distance = diff
+            solutions = []
+        if diff == min_distance:
+            solutions.append([n1,n2])
+    return solutions
 
 inputs = [[4,2,1,3],[1,3,6,10,15],[3,8,-10,23,19,-4,-14,27]]
 outputs = [[[1,2],[2,3],[3,4]],[[1,3]],[[-14,-10],[19,23],[23,27]]]
 
 print("ATTEMPT 1")
-for idx in range(len(inputs)):
+test_input = [a[:] for a in inputs]
+for idx in range(len(test_input)):
     test_num = idx + 1
-    result = "Success" if minimumAbsDifference(inputs[idx]) == outputs[idx] else "Fail"
+    result = "Success" if minimumAbsDifference(test_input[idx]) == outputs[idx] else "Fail"
+    print(f"test {test_num}: {result}")
+
+print("ATTEMPT 2")
+test_input = [a[:] for a in inputs]
+for idx in range(len(test_input)):
+    test_num = idx + 1
+    result = "Success" if minimumAbsDifference2(test_input[idx]) == outputs[idx] else "Fail"
     print(f"test {test_num}: {result}")
