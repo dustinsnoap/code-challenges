@@ -15,7 +15,18 @@
 # The total number of nodes is between [0, 10^4].
 
 def maxDepth(root):
-    pass
+    if root is None: return 0
+    root.val = 1
+    queue = [root]
+    max_depth = 0
+    while len(queue) > 0:
+        node = queue.pop()
+        if node.val > max_depth: max_depth = node.val
+        if len(node.children) > 0:
+            for n in node.children:
+                n.val = node.val + 1
+                queue.append(n)
+    return max_depth
 
 inputs = [[1,None,3,2,4,None,5,6],[1,None,2,3,4,5,None,None,6,7,None,8,None,9,10,None,None,11,None,12,None,13,None,None,14]]
 outputs = [3,5]
