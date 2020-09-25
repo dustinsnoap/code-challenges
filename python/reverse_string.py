@@ -14,8 +14,23 @@ def reverseString(s):
     s[:] = s[::-1]
     return s
 
-ex1 = ["h","e","l","l","o"]
-ex2 = ["H","a","n","n","a","h"]
+def reverseString2(s):
+    s = s[::-1]
+    return s
 
-print(reverseString(ex1))
-print(reverseString(ex2))
+inputs = [["h","e","l","l","o"],["H","a","n","n","a","h"]]
+outputs = [["o","l","l","e","h"],["h","a","n","n","a","H"]]
+
+print("ATTEMPT 1")
+test_input = [a[:] for a in inputs]
+for idx in range(len(test_input)):
+    test_num = idx + 1
+    result = "Success" if reverseString(test_input[idx]) == outputs[idx] else "Fail"
+    print(f"test {test_num}: {result}")
+
+print("ATTEMPT 2")
+test_input = [a[:] for a in inputs]
+for idx in range(len(test_input)):
+    test_num = idx + 1
+    result = "Success" if reverseString2(test_input[idx]) == outputs[idx] else "Fail"
+    print(f"test {test_num}: {result}")
