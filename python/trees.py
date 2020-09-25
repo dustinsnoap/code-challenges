@@ -19,6 +19,7 @@ def view_tree(root):
         if isPowerOfTwo(count): print()
 
 def build_tree(arr):
+    print('arr', arr)
     root = Node(arr.pop(0))
     queue = [root]
     while len(arr) > 0:
