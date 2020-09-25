@@ -12,6 +12,7 @@
 # return its depth = 3.
 
 def maxDepth(root):
+    if root is None: return 0
     stack = [root]
     root.val = 1
     max_depth = 1
@@ -26,3 +27,8 @@ def maxDepth(root):
         max_depth = max(root.val, max_depth)
     return max_depth
 
+def maxDepthRecursive(root):
+    if not root: return 0
+    left = maxDepth(root.left) + 1
+    right = maxDepth(root.right) + 1
+    return max(left, right)
