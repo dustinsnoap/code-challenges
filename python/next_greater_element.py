@@ -22,6 +22,10 @@
 # All elements in nums1 and nums2 are unique.
 # The length of both nums1 and nums2 would not exceed 1000.
 
+# NOTES
+# ATTEMPT 2
+# implement lazy loading; cache the second array on the fly. 
+
 def nextGreaterElement(nums1, nums2):
     dct = {}
     out = []

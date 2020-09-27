@@ -25,3 +25,7 @@ def invertTree(root):
     invertTree(root.left)
     invertTree(root.right)
     return root
+
+def invertTree2(root):
+    if root: root.left, root.right = invertTree2(root.right), invertTree2(root.left)
+    return root
