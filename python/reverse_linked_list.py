@@ -16,3 +16,13 @@ def reverseList(head):
         prev_node = current
         current = next_node
     return prev_node
+
+def reverseList2(head):
+    prev_node = None
+    current = head
+    while(current):
+        next_node = current.next
+        current.next = prev_node
+        prev_node = current
+        current = next_node
+    return prev_node
