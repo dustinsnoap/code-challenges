@@ -23,6 +23,14 @@ def intersection(nums1, nums2):
             out.append(n)
     return out
 
+def itersection2(nums1, nums2):
+    seen = {}
+    for n in nums1: seen[n] = n
+    out = []
+    for n in nums2:
+        if n in seen: out.append(seen.pop(n))
+    return out
+
 inputs = [[[1,2,2,1],[2,2]],[[4,9,5],[9,4,9,8,4]]]
 outputs = [[2],[9,4]]
 
@@ -31,4 +39,11 @@ test_input = [a[:] for a in inputs]
 for idx in range(len(test_input)):
     test_num = idx + 1
     result = "Success" if intersection(test_input[idx][0],test_input[idx][1]) == outputs[idx] else "Fail"
+    print(f"test {test_num}: {result}")
+
+print("ATTEMPT 2")
+test_input = [a[:] for a in inputs]
+for idx in range(len(test_input)):
+    test_num = idx + 1
+    result = "Success" if itersection2(test_input[idx][0],test_input[idx][1]) == outputs[idx] else "Fail"
     print(f"test {test_num}: {result}")
