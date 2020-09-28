@@ -33,7 +33,11 @@ def reverseList2(head):
     return prev_node
 
 def reverseListRecursive(head):
-    pass
+    if head is None or head.next is None: return head
+    tmp = reverseListRecursive(head.next)
+    head.next.next = head
+    head.next = None
+    return tmp
 
 
 # TESTING
@@ -46,3 +50,7 @@ tester.test(reverseList, input)
 print('TEST 2')
 input = [1,2,3,4,5]
 tester.test(reverseList2, input)
+
+print('TEST 3')
+input = [1,2,3,4,5]
+tester.test(reverseListRecursive, input)
