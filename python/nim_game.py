@@ -15,9 +15,13 @@
 def canWinNim(n):
     return not n % 4 == 0
 
+def canWinNim2(n):
+    if n < 4: return True
+    return not n % 4 == 0
+
 inputs = [1,2,3,4,5,6,7,8,9,10,11,12,13]
 outputs = [True,True,True,False,True,True,True,False,True,True,True,False,True]
-funcs = [canWinNim]
+funcs = [canWinNim, canWinNim2]
 
 from tools import test
-test(inputs, outputs,funcs)
+test(inputs, outputs, funcs)
