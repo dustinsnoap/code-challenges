@@ -13,11 +13,11 @@
 #              removed by your friend.
 
 def canWinNim(n):
-    pass
+    return not n % 4 == 0
 
-inputs = [4]
-outputs = [False]
+inputs = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+outputs = [True,True,True,False,True,True,True,False,True,True,True,False,True]
 funcs = [canWinNim]
 
 from tools import test
-test(inputs, outputs, funcs)
+test(inputs, outputs,funcs)
