@@ -32,3 +32,14 @@ class LinkedList:
         newlist = fnc(llcoollist)
         print('output:   ', end='')
         self.print_list(newlist)
+
+def test(inputs, outputs, funcs):
+    test_input = [arr[:] for arr in inputs]
+    for idx, func in enumerate(funcs):
+        print(f'\n===== FUNCTION {idx+1} =====\n')
+        for idx in range(len(test_input)):
+            input = test_input[idx]
+            output = func(input)
+            success = 'PASSED' if outputs[idx] == output else 'FAILED'
+            print(f'----- TEST {idx+1} {success}')
+            print(f'Input: {input}\nOutput: {output}\n')
