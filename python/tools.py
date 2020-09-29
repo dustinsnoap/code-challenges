@@ -34,7 +34,8 @@ class LinkedList:
         self.print_list(newlist)
 
 def test(inputs, outputs, funcs):
-    test_input = [arr[:] for arr in inputs]
+    if type(inputs[0]) is list(): test_input = [arr[:] for arr in inputs]
+    else: test_input = inputs
     for idx, func in enumerate(funcs):
         print(f'\n===== FUNCTION {idx+1} =====\n')
         for idx in range(len(test_input)):
