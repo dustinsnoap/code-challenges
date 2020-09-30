@@ -20,9 +20,16 @@ def containsDuplicate(nums):
         has[n] = 1
     return False
 
+def containsDuplicate2(nums):
+    seen = set()
+    for n in nums:
+        if n in seen: return True
+        seen.add(n)
+    return False
+
 from tools import test
 inputs = [[1,2,3,1],[1,2,3,4],[1,1,1,3,3,4,3,2,4,2]]
 outputs = [True,False,True]
-funcs = [containsDuplicate]
+funcs = [containsDuplicate,containsDuplicate2]
 
 test(inputs,outputs,funcs)
