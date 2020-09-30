@@ -26,8 +26,20 @@ def isAnagram(s, t):
         if chars[char] != 0: return False
     return True
 
+def isAnagram2(s, t):
+    if len(s) != len(t): return False
+    ss = {}
+    ts = {}
+    for i in range(len(s)):
+        if s[i] not in ss: ss[s[i]] = 1
+        else: ss[s[i]] += 1
+        if t[i] not in ts: ts[t[i]] = 1
+        else: ts[t[i]] += 1
+    return ss == ts
+
+
 inputs = [{'s': "anagram", 't': "nagaram"}, {'s': "rat", 't': "car"}]
 outputs = [True, False]
 
 for i in inputs:
-    print(isAnagram(s=i['s'], t=i['t']))
+    print(isAnagram2(s=i['s'], t=i['t']))
