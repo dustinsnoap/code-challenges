@@ -26,7 +26,7 @@ def isSameTree(p, q):
     if p and not q: return False
     if q and not p: return False
     if not p and not q: return True
-    
+
     stack_1 = [p]
     stack_2 = [q]
 
@@ -46,3 +46,9 @@ def isSameTree(p, q):
             stack_2.append(node2.right)
             
     return True
+
+def isSameTree2(p, q):
+    if not p and not q: return True
+    if not p or not q: return False
+    if p.val == q.val: return isSameTree2(p.left, q.left) and isSameTree2(p.right, q.right)
+    return False
