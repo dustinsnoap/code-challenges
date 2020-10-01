@@ -43,4 +43,4 @@ def test(inputs, outputs, funcs):
             output = func(input)
             success = 'PASSED' if outputs[idx] == output else 'FAILED'
             print(f'----- TEST {idx+1} {success}')
-            print(f'Input: {input}\nOutput: {output}\n')
+            print(f'Input    : {input}\nExpected : {outputs[idx]}\nOutput   : {output}\n')
