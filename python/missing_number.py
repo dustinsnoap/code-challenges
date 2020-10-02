@@ -26,14 +26,16 @@
 def missingNumber(nums):
     expected = [None] * (len(nums)+1)
     for n in nums: expected[n] = n
-    # print(expected)
     for i in range(len(expected)):
         if expected[i] == None: return i
     return False
 
+def missingNumber2(nums):
+    return set([n for n in range(len(nums)+1)]).difference(set(nums)).pop()
+
 from tools import test
 inputs = [[3,0,1],[0,1],[9,6,4,2,3,5,7,0,1],[0]]
 outputs = [2,2,8,1]
-funcs = [missingNumber]
+funcs = [missingNumber,missingNumber2]
 
 test(inputs, outputs, funcs)
