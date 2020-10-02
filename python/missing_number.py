@@ -33,9 +33,15 @@ def missingNumber(nums):
 def missingNumber2(nums):
     return set([n for n in range(len(nums)+1)]).difference(set(nums)).pop()
 
+def missingNumber3(nums):
+    max_n = len(nums)
+    total = 0
+    for n in nums: total += n
+    return int((max_n*(max_n+1))/2 - total)
+
 from tools import test
 inputs = [[3,0,1],[0,1],[9,6,4,2,3,5,7,0,1],[0]]
 outputs = [2,2,8,1]
-funcs = [missingNumber,missingNumber2]
+funcs = [missingNumber,missingNumber2,missingNumber3]
 
 test(inputs, outputs, funcs)
