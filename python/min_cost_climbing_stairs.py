@@ -26,10 +26,17 @@ def solution1(cost):
         else: steps[n] = cost[n]
     return min(steps[last_step],steps[last_step-1])
 
+def solution2(cost):
+    cost.append(0)
+    price_list = [0] * len(cost)
+    price_list[0] = cost[0]
+    price_list[1] = cost[1]
+    for idx in range(2,len(cost)): price_list[idx] = min(price_list[idx-1],price_list[idx-2]) + cost[idx]
+    return price_list[-1]
 
 from tools import test
 inputs = [[10,15,20],[1,100,1,1,1,100,1,1,100,1]]
 outputs = [15,6]
-funcs = [solution1]
+funcs = [solution1, solution2]
 
 test(inputs, outputs, funcs)
