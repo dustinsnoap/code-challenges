@@ -23,9 +23,18 @@ def maxProfit(prices):
         small = min(p, small)
     return max(profit,big-small)
 
+def maxProfit2(prices):
+    if not prices: return 0
+    profit = 0
+    min = prices[0]
+    for p in prices:
+        if p < min: min = p
+        else: profit = max(profit,p-min)
+    return profit
+
 from tools import test
 inputs = [[7,1,5,3,6,4],[7,6,4,3,1]]
 outputs = [5,0]
-funcs = [maxProfit]
+funcs = [maxProfit, maxProfit2]
 
 test(inputs, outputs, funcs)
