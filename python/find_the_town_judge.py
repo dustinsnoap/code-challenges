@@ -47,7 +47,7 @@
 
 def findJudge(N, trust):
     if N == 1: return 1
-    if len(trust[0]) == 0: return -1
+    if len(trust) == 0 or len(trust[0]) == 0: return -1
     villagers = set()
     votes = {}
     for villager in trust:
