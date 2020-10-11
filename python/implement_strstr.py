@@ -17,6 +17,8 @@
 # Input: haystack = "", needle = ""
 # Output: 0
 
+
+
 # Constraints:
 # 0 <= haystack.length, needle.length <= 5 * 104
 # haystack and needle consist of only lower-case English characters.
@@ -29,14 +31,15 @@ def solution0(haystack, needle):
     return -1
 
 def solution1(haystack, needle):
-    if needle == '': return 0
+    if not needle: return 0
     needle_len = len(needle)
-    for i in range(len(haystack)):
-        if haystack[i:i+needle_len] == needle: return i
+    char = needle[0]
+    for i in range(len(haystack)-needle_len+1):
+        if haystack[i] == char and haystack[i:i+needle_len] == needle: return i
     return -1
 
-inputs = [['hello', 'll'],['aaaa','bba'],['','']]
-outputs = [2,-1,0]
+inputs = [['hello', 'll'],['aaaa','bba'],['',''],['mississippi','issip']]
+outputs = [2,-1,0,4]
 funcs = [solution0, solution1]
 
 for idx, func in enumerate(funcs):
