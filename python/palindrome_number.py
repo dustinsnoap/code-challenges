@@ -30,9 +30,14 @@ def solution1(x):
         return False
     return True
 
+def solution2(x):
+    if x < 0: return False
+    x = str(x)
+    return x == x[::-1]
+
 from tools import test
 inputs = [121,-121,10,-101,1101011]
 outputs = [True,False,False,False,True]
-funcs = [solution1]
+funcs = [solution1,solution2]
 
 test(inputs,outputs,funcs)
