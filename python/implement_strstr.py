@@ -31,6 +31,13 @@ def solution0(haystack, needle):
     return -1
 
 def solution1(haystack, needle):
+    if needle == '': return 0
+    needle_len = len(needle)
+    for i in range(len(haystack)):
+        if haystack[i:i+needle_len] == needle: return i
+    return -1
+
+def solution2(haystack, needle):
     if not needle: return 0
     needle_len = len(needle)
     char = needle[0]
@@ -38,9 +45,14 @@ def solution1(haystack, needle):
         if haystack[i] == char and haystack[i:i+needle_len] == needle: return i
     return -1
 
+def solution3(haystack, needle):
+    if not needle: return 0
+    try: return haystack.index(needle)
+    except: return -1
+
 inputs = [['hello', 'll'],['aaaa','bba'],['',''],['mississippi','issip']]
 outputs = [2,-1,0,4]
-funcs = [solution0, solution1]
+funcs = [solution0, solution1, solution2, solution3]
 
 for idx, func in enumerate(funcs):
     print(f'Solution {idx}')
