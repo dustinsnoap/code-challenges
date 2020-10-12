@@ -43,10 +43,20 @@ def solution1(s):
             except: return False
     return len(closing_stack) == 0
 
+def solution2(s):
+    stack = []
+    dct = {')':'(',']':'[','}':'{'}
+    for c in s:
+        if c in dct.values(): stack.append(c)
+        elif c in dct:
+            if len(stack) == 0 or dct[c] != stack.pop(): return False
+        else: return False
+    return stack == []
+
 
 from tools import test
 inputs = ['()','()[]{}','(]','([)]','{[]}','[',']','){']
 outputs = [True,True,False,False,True,False,False,False]
-funcs = [solution1]
+funcs = [solution1,solution2]
 
 test(inputs, outputs, funcs)
