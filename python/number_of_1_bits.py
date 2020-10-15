@@ -40,10 +40,13 @@ def solution2(n):
         n = n >> 1
     return count
 
+def solution3(n):
+    return bin(n).count('1')
+
 from tools import test
 
 inputs = [11,128,4294967293]
 outputs = [3,1,31]
-funcs = [solution1, solution2]
+funcs = [solution1, solution2, solution3]
 
 test(inputs,outputs,funcs)
