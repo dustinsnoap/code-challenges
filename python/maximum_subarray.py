@@ -36,10 +36,15 @@ def solution1(nums):
         print('n', n, 'c', current, 'm', greatest)
     return greatest
 
+def solution2(nums):
+    for i in range(1, len(nums)):
+        nums[i] += nums[i-1] if nums[i-1] > 0 else 0
+    return max(nums)
+
 from tools import test
 
 inputs = [[-2,1,-3,4,-1,2,1,-5,4],[1],[0],[-1],[-2147483647]]
 outputs = [6,1,0,-1,-2147483647]
-funcs = [solution1]
+funcs = [solution1, solution2]
 
 test(inputs, outputs, funcs)
