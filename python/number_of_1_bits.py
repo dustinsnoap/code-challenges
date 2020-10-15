@@ -33,10 +33,17 @@ def solution1(n):
     for bit in str(bin(n)): count += 1 if bit == '1' else 0
     return count
 
+def solution2(n):
+    count = 0
+    while n:
+        if n & 1: count += 1
+        n = n >> 1
+    return count
+
 from tools import test
 
 inputs = [11,128,4294967293]
 outputs = [3,1,31]
-funcs = [solution1]
+funcs = [solution1, solution2]
 
 test(inputs,outputs,funcs)
